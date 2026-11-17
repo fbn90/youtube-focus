@@ -1,0 +1,19 @@
+/* Reversible CSS only; no player, DOM node or network manipulation. */
+html[data-youtube-focus][data-youtube-focus-watch][data-youtube-focus-comments] :is(#comments,ytd-comments,ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-comments-section"]) {display:none!important}
+/* The native playlist panel also renders playback queues. Preserve its ancestors,
+   even when YouTube inserts it inside the recommendation container after navigation. */
+html[data-youtube-focus][data-youtube-focus-watch][data-youtube-focus-recommendations] :is(#related,ytd-watch-next-secondary-results-renderer):not(:has(ytd-playlist-panel-renderer:not([hidden]):not([hidden] *))),
+html[data-youtube-focus][data-youtube-focus-watch][data-youtube-focus-recommendations] #movie_player :is(.ytp-ce-element,.ytp-cards-teaser,.ytp-endscreen-content,.ytp-pause-overlay) {display:none!important}
+/* A shared container stays open for the queue; its recommendation cards do not.
+   Never match cards belonging to the native playlist/queue itself. */
+html[data-youtube-focus][data-youtube-focus-watch][data-youtube-focus-recommendations] :is(#related,ytd-watch-next-secondary-results-renderer) :is(ytd-compact-video-renderer,ytd-compact-radio-renderer,ytd-compact-playlist-renderer,ytd-rich-item-renderer,ytd-video-renderer,yt-lockup-view-model,ytd-reel-shelf-renderer,ytd-ad-slot-renderer,yt-chip-cloud-renderer):not(ytd-playlist-panel-renderer *):not(:has(ytd-playlist-panel-renderer:not([hidden]):not([hidden] *))) {display:none!important}
+html[data-youtube-focus][data-youtube-focus-watch][data-youtube-focus-chat] ytd-live-chat-frame {display:none!important}
+/* Collapse only an unused sidebar. CSS :has() also handles late queue updates. */
+html[data-youtube-focus][data-youtube-focus-watch][data-youtube-focus-recommendations][data-youtube-focus-chat] ytd-watch-flexy #secondary:not(:has(ytd-playlist-panel-renderer:not([hidden]):not([hidden] *))) {display:none!important}
+html[data-youtube-focus][data-youtube-focus-shorts] :is(ytd-reel-shelf-renderer,ytd-rich-shelf-renderer[is-shorts],yt-shorts-lockup-view-model):not(ytd-playlist-panel-renderer *):not(:has(ytd-playlist-panel-renderer)),
+html[data-youtube-focus][data-youtube-focus-shorts] :is(ytd-rich-item-renderer,ytd-video-renderer,ytd-guide-entry-renderer,ytd-mini-guide-entry-renderer):has(a[href^="/shorts"]):not(ytd-playlist-panel-renderer *):not(:has(ytd-playlist-panel-renderer)) {display:none!important}
+html[data-youtube-focus][data-youtube-focus-watch] ytd-watch-flexy :is(ytd-merch-shelf-renderer,ytd-donation-shelf-renderer,ytd-ticket-shelf-renderer,ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-shopping"]),
+html[data-youtube-focus][data-youtube-focus-watch] ytd-watch-metadata :is(#actions,#subscribe-button,#sponsor-button,ytd-subscribe-button-renderer,ytd-sponsorships-offer-renderer),
+html[data-youtube-focus][data-youtube-focus-watch] :is(ytd-guide-renderer,ytd-mini-guide-renderer,app-drawer#guide,ytd-masthead #guide-button) {display:none!important}
+html[data-youtube-focus][data-youtube-focus-watch][data-youtube-focus-recommendations][data-youtube-focus-chat] ytd-watch-flexy:not([theater]):not([fullscreen]):not(:has(#secondary ytd-playlist-panel-renderer:not([hidden]):not([hidden] *))) #columns {max-width:1168px!important;margin-inline:auto!important}
+html[data-youtube-focus][data-youtube-focus-watch][data-youtube-focus-recommendations][data-youtube-focus-chat] ytd-watch-flexy:not([theater]):not([fullscreen]):not(:has(#secondary ytd-playlist-panel-renderer:not([hidden]):not([hidden] *))) #primary {margin-inline:auto!important;max-width:1120px!important;min-width:0!important;flex:1 1 auto!important;width:100%!important}

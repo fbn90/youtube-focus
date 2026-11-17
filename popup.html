@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>YouTube Focus</title><link rel="icon" href="icons/icon-32.png"><link rel="stylesheet" href="popup.css"></head>
+<body><main>
+<header class="brand"><img src="icons/icon-32.png" width="32" height="32" alt=""><div>YouTube Focus<small id="version"></small></div></header>
+<section class="intro" aria-labelledby="heading"><h1 id="heading">YouTube without the distractions</h1><p>Keep your attention on the video.</p></section>
+<label class="master"><span>Focus mode<small>The player, title and description stay visible.</small></span><input id="enabled" data-setting="focusEnabled" type="checkbox" role="switch" disabled></label>
+<fieldset id="options" disabled><legend>HIDE DISTRACTIONS</legend>
+<div class="option-list">
+<label class="option"><span>Comments<small>Below the video and in the side panel.</small></span><input data-setting="hideComments" type="checkbox" role="switch"></label>
+<label class="option"><span>Recommendations<small>Playlists and queues stay visible.</small></span><input data-setting="hideRecommendations" type="checkbox" role="switch"></label>
+<label class="option"><span>Live chat<small>The chat alongside live streams.</small></span><input data-setting="hideLiveChat" type="checkbox" role="switch"></label>
+<label class="option"><span>Shorts links<small>Hides navigation links and shelves. Direct links still work.</small></span><input data-setting="hideShorts" type="checkbox" role="switch"></label>
+</div>
+</fieldset>
+<p id="status" role="status" aria-live="polite">Loading settings …</p>
+<footer><span class="local-dot" aria-hidden="true"></span><p>Settings stay on this device.<br>YouTube may still load hidden content.</p></footer>
+</main><script src="settings.js"></script><script src="popup.js"></script></body>
+</html>
